@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+div.result-container {
+    max-width: 1000px;
+    margin: 50px auto;
+
+    div.score {
+        font-weight: bold;
+    }
+
+    table {
+        border: 1px solid $tomato;
+        width: 100%;
+        border-collapse: collapse;
+
+        th {
+            background-color: $tomato;
+            color: white;
+            font-weight: normal;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+@import '../../styles/variables';
+@import '../../styles//mixins';
+
+div.quiz-container {
+    border: 1px solid $tomato;
+    margin: 10px auto;
+    max-width: 800px;
+
+    header {
+        background-color: $tomato;
+        color: white;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h2 {
+            font-size: 20px;
+            margin: 0;
+        }
+    }
+
+    section {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        min-height: 300px;
+        justify-content: space-between;
+
+        button {
+            @include button($seaGreen, white);
+            margin-right: 5px;
+        }
+
+
+
+
+
+    }
+}
+
+
+

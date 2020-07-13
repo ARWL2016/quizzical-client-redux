@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+
+nav.top-nav {
+    height: 60px;
+    background-color: $tomato;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    span {
+        color: white
+    }
+
+    span.logo {
+        font-size: 18px;
+        margin: 0;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    span.menu-item {
+
+    }
+}

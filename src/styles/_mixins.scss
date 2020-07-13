@@ -1,0 +1,18 @@
+@mixin button($backgroundColour, $colour) {
+    background-color: $backgroundColour;
+    color: $colour;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    outline: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: lighten($backgroundColour, 20%);
+        color: lighten($colour, 20%);
+    }
+}

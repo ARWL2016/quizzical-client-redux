@@ -1,0 +1,81 @@
+@import '../../styles/variables';
+@import '../../styles//mixins';
+
+form.quiz-form-container {
+
+    margin: 20px auto;
+    max-width: 1000px;
+
+    div.question-container {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: $backgroundGrey;
+    }
+
+    div.form-field-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+
+
+    div.form-field {
+        display: flex;
+        padding: 5px;
+        align-items: center;
+
+        label {
+            width: 40%;
+            font-weight: bold;
+        }
+
+        input {
+            width: 60%;
+            height: 30px;
+            padding: 3px 5px;
+        }
+    }
+
+    div.title-field {
+        padding: 15px;
+        background-color: $sandy;
+        color: white;
+    }
+
+    div.answers-container {
+        padding-left: 40px;
+    }
+
+    div.form-button-container {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+
+        button,
+        input {
+            @include button($seaGreen, white);
+        }
+    }
+
+    div.question-button-container {
+        display: flex;
+        justify-content: flex-end;
+        margin: 5px;
+
+        button {
+            @include button($tomato, white);
+        }
+
+    }
+
+
+
+
+
+
+    // input[type=submit] {
+    //     @include button($seaGreen, white);
+    // }
+
+}
+
