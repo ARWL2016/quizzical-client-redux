@@ -1,0 +1,5 @@
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
+export const FETCH_QUIZZES = 'FETCH_QUIZZES';
+export const SET_QUIZZES = 'SET_QUIZZES';
+export const FETCH_QUIZZES_ERROR = 'FETCH_QUIZZES_ERROR';

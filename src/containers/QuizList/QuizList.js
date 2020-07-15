@@ -1,44 +1,45 @@
-import React, { Component } from 'react';
-import QuizTitle from 'components/QuizTitle/QuizTitle';
-import { getAll } from 'data/quiz-data';
+import React, { Component } from "react";
+import QuizTitle from "components/QuizTitle/QuizTitle";
 
+import { connect } from "react-redux";
+import * as actionCreators from "../../store/actions";
 
 class QuizList extends Component {
-    state = {
-        quizTitles: []
-    }
+  componentDidMount() {
+    this.props.fetchQuizzes();
+  }
 
-    async componentDidMount() {
+  titleClickHandler = (e, quizId) => {
+    this.props.history.push({ pathname: "/info/" + quizId });
+  };
 
-        const quizList = await getAll();
+  render() {
+    console.log(this.props);
 
-        if (quizList) {
-            const quizTitles = quizList.map(quiz => ({ id: quiz.quiz_id, title: quiz.title }));
-            this.setState({ quizTitles });
-        }
-
-    }
-
-    titleClickHandler = (e, title) => {
-        this.props.history.push({ pathname: "/info/" + title.id });
-    }
-
-    render() {
-        const { quizTitles } = this.state;
-
-        return (
-            <div className="QuizList">
-                {quizTitles.map(title => {
-                    return <QuizTitle key={title.id} click={() => this.titleClickHandler(null, title)} title={title.title} />
-                })}
-
-            </div>
-        );
-
-    }
+    return (
+      <div className="QuizList">
+        {(this.props.quiz.quizzes || []).map((quiz) => (
+          <QuizTitle
+            key={quiz.quiz_id}
+            click={() => this.titleClickHandler(null, quiz.quiz_id)}
+            title={quiz.title}
+          />
+        ))}
+      </div>
+    );
+  }
 }
 
-export default QuizList;
+const mapStateToProps = (state) => {
+  return {
+    quiz: state.quiz
+  };
+};
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchQuizzes: () => dispatch(actionCreators.fetchQuizzes())
+  };
+};
 
-
+export default connect(mapStateToProps, mapDispatchToProps)(QuizList);

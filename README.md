@@ -6,6 +6,8 @@ Quizzical is a quiz app that allows users to create multiple choice quizzes and 
 #### Technology
 - React 16.13
 - Create React App
+- Redux
+- Thunk
 - Sass
 
 #### Features
@@ -15,19 +17,6 @@ Quizzical is a quiz app that allows users to create multiple choice quizzes and 
 
 #### Todo
 
-General
-- add documentation
-
-Tech
-- add Redux
-
-Feature Requests
-- add login
-- show previous attempts on header screen (requires user)
-- allow editing of quizzes
-
-Bug
-
-Enhancements
-- add completion status bar on quiz
+1. add error handling to fetch quizzes 
+2. add semantic-ui library and loader
 

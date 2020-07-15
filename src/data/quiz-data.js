@@ -4,7 +4,6 @@ import { server } from '../environment';
 
 async function getAll() {
     try {
-      console.log(process.env)  
       const response = await axios.get(`${server}/quiz`);
         
         return response.data.data.quizzes;
