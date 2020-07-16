@@ -5,6 +5,7 @@ export const fetchQuizzes = () => {
   return (dispatch) => {
     api.get('quiz')
       .then((response) => {
+        //  throw new Error();
         dispatch(setQuizzes(response.data.data.quizzes));
       })
       .catch((error) => {

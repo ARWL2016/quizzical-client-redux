@@ -1,6 +1,12 @@
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
+
 export const FETCH_QUIZZES = 'FETCH_QUIZZES';
 export const SET_QUIZZES = 'SET_QUIZZES';
 export const FETCH_QUIZZES_ERROR = 'FETCH_QUIZZES_ERROR';
 export const SET_LOADING = 'SET_LOADING';
+
+export const FETCH_QUIZ_HEADER = 'FETCH_QUIZ_HEADER';
+export const SET_QUIZ_HEADER = 'SET_QUIZ_HEADER';
+export const FETCH_QUIZ_HEADER_ERROR = 'FETCH_QUIZ_HEADER_ERROR';
+// export const SET_LOADING = 'SET_LOADING';

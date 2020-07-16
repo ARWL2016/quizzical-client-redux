@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Message } from "semantic-ui-react";
 import LoadingComponent from "../../common/LoadingComponent";
+import ErrorMessage from "../../common/ErrorMessage";
+import './QuizList.scss'
 
 import QuizTitle from "components/QuizTitle/QuizTitle";
 import * as actionCreators from "../../store/actions";
@@ -16,24 +17,9 @@ class QuizList extends Component {
     this.props.history.push({ pathname: "/info/" + quizId });
   };
 
-  render() {
-    const { quizzes, error, loading } = this.props.quizState;
-
-    if (loading) {
-      return <LoadingComponent />;
-    }
-
-    if (error) {
-      return (
-        <Message negative compact>
-          <Message.Header>Error</Message.Header>
-          <p>{error}</p>
-        </Message>
-      );
-    }
-
+  renderQuizzes(quizzes) {
     return (
-      <div className="QuizList">
+      <React.Fragment>
         {(quizzes || []).map((quiz) => (
           <QuizTitle
             key={quiz.quiz_id}
@@ -41,6 +27,18 @@ class QuizList extends Component {
             title={quiz.title}
           />
         ))}
+      </React.Fragment>
+    );
+  }
+
+  render() {
+    const { quizzes, error, loading } = this.props.quizList;
+
+    return (
+      <div className="quiz-list">
+        {loading && <LoadingComponent />}
+        {!loading && error && <ErrorMessage error={error} />}
+        {!loading && !error && this.renderQuizzes(quizzes)}
       </div>
     );
   }
@@ -48,7 +46,7 @@ class QuizList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    quizState: state.quiz,
+    quizList: state.quizList,
   };
 };
 

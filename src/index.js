@@ -10,12 +10,12 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 // import { server } from './environment';
 
-import counterReducer from './store/reducers/counter';
-import quizReducer from './store/reducers/quiz'
+import quizListReducer from './store/reducers/quizList';
+import quizHeaderReducer from './store/reducers/quizHeader';
 
 const rootReducer = combineReducers({
-   quiz: quizReducer,
-   counter: counterReducer
+   quizList: quizListReducer,
+   quizHeader: quizHeaderReducer
 })
 
 
