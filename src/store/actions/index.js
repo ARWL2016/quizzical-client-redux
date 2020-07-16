@@ -4,6 +4,7 @@ export {
 } from './counter';
 
 export {
-    fetchQuizzes
+    fetchQuizzes,
+    setLoading
 
 } from './quiz';

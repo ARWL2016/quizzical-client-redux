@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import QuizTitle from "components/QuizTitle/QuizTitle";
-
 import { connect } from "react-redux";
+import { Message } from "semantic-ui-react";
+import LoadingComponent from "../../common/LoadingComponent";
+
+import QuizTitle from "components/QuizTitle/QuizTitle";
 import * as actionCreators from "../../store/actions";
 
 class QuizList extends Component {
   componentDidMount() {
+    this.props.setLoading(true);
     this.props.fetchQuizzes();
   }
 
@@ -14,11 +17,24 @@ class QuizList extends Component {
   };
 
   render() {
-    console.log(this.props);
+    const { quizzes, error, loading } = this.props.quizState;
+
+    if (loading) {
+      return <LoadingComponent />;
+    }
+
+    if (error) {
+      return (
+        <Message negative compact>
+          <Message.Header>Error</Message.Header>
+          <p>{error}</p>
+        </Message>
+      );
+    }
 
     return (
       <div className="QuizList">
-        {(this.props.quiz.quizzes || []).map((quiz) => (
+        {(quizzes || []).map((quiz) => (
           <QuizTitle
             key={quiz.quiz_id}
             click={() => this.titleClickHandler(null, quiz.quiz_id)}
@@ -32,13 +48,14 @@ class QuizList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    quiz: state.quiz
+    quizState: state.quiz,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchQuizzes: () => dispatch(actionCreators.fetchQuizzes())
+    fetchQuizzes: () => dispatch(actionCreators.fetchQuizzes()),
+    setLoading: (isLoading) => dispatch(actionCreators.setLoading(isLoading)),
   };
 };
 

@@ -1,16 +1,15 @@
 import * as actionTypes from "./actionTypes";
-import axios from 'axios';
-import { server } from  '../../environment';
+import api from '../../axiosConfig';
 
 export const fetchQuizzes = () => {
   return (dispatch) => {
-    axios
-      .get(`${server}/quiz`)
+    api.get('quiz')
       .then((response) => {
         dispatch(setQuizzes(response.data.data.quizzes));
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
+        dispatch(fetchQuizzesError('There was a problem fetching quizzes'));
       });
   };
 };
@@ -21,3 +20,17 @@ export const setQuizzes = (quizzes) => {
     payload: quizzes,
   };
 };
+
+export const fetchQuizzesError = (message) => {
+  return {
+    type: actionTypes.FETCH_QUIZZES_ERROR,
+    payload: message
+  }
+}
+
+export const setLoading = (isLoading) => {
+  return {
+    type: actionTypes.SET_LOADING,
+    payload: isLoading
+  }
+}
