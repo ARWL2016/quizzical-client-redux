@@ -4,9 +4,9 @@ import api from '../../axiosConfig';
 export const fetchQuizzes = () => {
   return (dispatch) => {
     api.get('quiz')
-      .then((response) => {
+      .then(data => {
         //  throw new Error();
-        dispatch(setQuizzes(response.data.data.quizzes));
+        dispatch(setQuizzes(data.quizzes));
       })
       .catch((error) => {
         console.log(error);

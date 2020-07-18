@@ -12,10 +12,12 @@ import registerServiceWorker from './registerServiceWorker';
 
 import quizListReducer from './store/reducers/quizList';
 import quizHeaderReducer from './store/reducers/quizHeader';
+import quizReducer from './store/reducers/quiz';
 
 const rootReducer = combineReducers({
    quizList: quizListReducer,
-   quizHeader: quizHeaderReducer
+   quizHeader: quizHeaderReducer,
+   quiz: quizReducer
 })
 
 

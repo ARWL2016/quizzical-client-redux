@@ -17,5 +17,8 @@ Quizzical is a quiz app that allows users to create multiple choice quizzes and 
 
 #### Todo
 
-1. use redux in quiz header
+3. use a memoized selector
+4. move loader up a level
+5. derive result from quiz class?
+
 

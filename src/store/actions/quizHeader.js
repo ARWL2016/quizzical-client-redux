@@ -4,9 +4,9 @@ import api from '../../axiosConfig';
 export const fetchQuizHeader = (id) => {
   return (dispatch) => {
     api.get(`quiz/${id}`)
-      .then((response) => {
+      .then((data) => {
         // throw new Error();
-        dispatch(setQuizHeader(response.data.data.quiz));
+        dispatch(setQuizHeader(data.quiz));
       })
       .catch((error) => {
         console.log(error);

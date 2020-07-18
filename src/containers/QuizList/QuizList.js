@@ -32,6 +32,7 @@ class QuizList extends Component {
   }
 
   render() {
+    console.log(this.props)
     const { quizzes, error, loading } = this.props.quizList;
 
     return (

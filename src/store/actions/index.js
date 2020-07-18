@@ -10,3 +10,13 @@ export {
     setQuizHeader,
     setLoading as setQuizHeaderLoading
 } from './quizHeader';
+
+export {
+    fetchQuizQuestions,
+    // setQuizQuestions,
+    nextQuestion,
+    pickAnswer,
+    submitAnswers,
+    closeModal
+    
+} from './quiz';

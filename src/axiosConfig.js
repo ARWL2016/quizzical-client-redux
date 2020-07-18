@@ -5,7 +5,9 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((req) => {
-    return new Promise(resolve => setTimeout(() => resolve(req), 1000))
+    return new Promise(resolve => setTimeout(() => resolve(req), 500))
 })
+
+api.interceptors.response.use(response => response.data.data);
 
 export default api;
